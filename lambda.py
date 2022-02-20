@@ -91,7 +91,7 @@ sudo /opt/lampp/lampp start
 sudo rm -rf /opt/lampp/htdocs/*
 sudo chmod 777 /opt/lampp/htdocs
 sudo git clone https://github.com/saiprasadrapeti/projectrepo.git
-sudo cp -r final_project/sourcecode/zms/* /opt/lampp/htdocs
+sudo cp -r projectrepo/car/carrental/* /opt/lampp/htdocs
 sudo chmod 777 /opt/lampp/htdocs/includes/dbconnection.php
 sudo sed -i.bak 's/localhost/{end_point}/g' /opt/lampp/htdocs/includes/dbconnection.php
 sudo sed -i.bak 's/localhost/{end_point}/g' /opt/lampp/htdocs/admin/includes/dbconnection.php
