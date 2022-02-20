@@ -92,9 +92,9 @@ sudo rm -rf /opt/lampp/htdocs/*
 sudo chmod 777 /opt/lampp/htdocs
 sudo git clone https://github.com/saiprasadrapeti/projectrepo.git
 sudo cp -r projectrepo/car/carrental/* /opt/lampp/htdocs
-sudo chmod 777 /opt/lampp/htdocs/includes/dbconnection.php
-sudo sed -i.bak 's/localhost/{end_point}/g' /opt/lampp/htdocs/includes/dbconnection.php
-sudo sed -i.bak 's/localhost/{end_point}/g' /opt/lampp/htdocs/admin/includes/dbconnection.php
+sudo chmod 777 /opt/lampp/htdocs/includes/config.php
+sudo sed -i.bak 's/localhost/{end_point}/g' /opt/lampp/htdocs/includes/config.php
+sudo sed -i.bak 's/localhost/{end_point}/g' /opt/lampp/htdocs/admin/includes/config.php
 sudo chmod 777 /opt/lampp/etc/extra/httpd-xampp.conf
 sudo sed -i.bak 's/local/all granted/g' /opt/lampp/etc/extra/httpd-xampp.conf
 sudo chmod 755 /opt/lampp/etc/extra/httpd-xampp.conf
