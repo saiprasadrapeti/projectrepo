@@ -110,7 +110,7 @@ sudo echo '$cfg["Servers"][$i]["AllowNoPassword"] = true;' >> /opt/lampp/phpmyad
 sudo chmod 400 /opt/lampp/phpmyadmin/config.inc.php
 sudo /opt/lampp/lampp restart
 sudo apt install mysql-client-core-8.0
-sudo mysql -h {end_point} -u admin --password=saiprasadrapeti carrental < /final_project/sourcecode/SQL\ File/carrental.sql
+sudo mysql -h {end_point} -u admin --password=saiprasadrapeti carrental < /projectrepo/car/SQL\ File/carrental.sql
 '''
      user_Data_bytes = user_Data.encode("ascii")
      base64_bytes = base64.b64encode(user_Data_bytes)
@@ -118,12 +118,12 @@ sudo mysql -h {end_point} -u admin --password=saiprasadrapeti carrental < /final
      launch_template = ec2.create_launch_template(
           LaunchTemplateName='my-lt',
           LaunchTemplateData={
-               'ImageId': AMI,
-               'InstanceType': INSTANCE_TYPE,
-               'KeyName': key_pair['KeyName'],
+               'ImageId': ami-0629230e074c580f2,
+               'InstanceType': t2.micro,
+               'KeyName': key_pair['saiprasad'],
                'UserData': base64_string,
-               'SecurityGroupIds': [security_group['GroupId']],
-               'IamInstanceProfile': {'Name': 'demo-Role'}})
+               'SecurityGroupIds': [security_group['sg-0dc41efd97089dff7']],
+               'IamInstanceProfile': {'Name': 'sairole'}})
      print (launch_template)
      print ("Launch template created.")
 
@@ -143,7 +143,7 @@ sudo mysql -h {end_point} -u admin --password=saiprasadrapeti carrental < /final
           MinSize=1,
           MaxSize=2,
           DesiredCapacity=1,
-          AvailabilityZones=['us-east-2b'],
+          AvailabilityZones=['us-east-2c'],
           TargetGroupARNs=[target_group['TargetGroups'][0]['TargetGroupArn']])
      print ("Second asg Created.")
 
